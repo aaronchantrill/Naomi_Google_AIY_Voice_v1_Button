@@ -2,15 +2,18 @@ from naomi import plugin
 from RPi import GPIO
 
 class GoogleAIYVoiceV1Plugin(plugin.VisualizationsPlugin):
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
+        super(GoogleAIYVoiceV1Plugin, self).__init__(*args, **kwargs)
         LED = 25
-        # GPIO.setwarnings(False)
+        # Don't issue warnings about the GPIO pin being in use
+        # (it is probably left over from the last run).
+        GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(25,GPIO.OUT)
-        self._pwm=GPIO.PWM(25,100)
+        GPIO.setup(25, GPIO.OUT)
+        self._pwm=GPIO.PWM(25, 100)
         self._pwm.start(0)
+        print("Initialization complete")
         
-    @classmethod
     def mic_volume(self, *args, **kwargs):
         try:
             recording = kwargs['recording']
