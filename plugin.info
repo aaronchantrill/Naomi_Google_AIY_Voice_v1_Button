@@ -1,0 +1,10 @@
+[Plugin]
+Name = Google AIY Voice V1 Visualizations
+Version = 1.0.0
+License = MIT
+URL = http://naomiproject.github.io/
+Description = Visualizations of Naomi's internal state for the Google AIY Voice V1 kit
+
+[Author]
+Name = Naomi Project
+URL = http://naomiproject.github.io/
